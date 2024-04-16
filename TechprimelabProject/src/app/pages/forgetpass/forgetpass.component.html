@@ -1,0 +1,58 @@
+<div>
+    <div class="row">
+        <div class="col-md-12 bg-image">
+            <!-- Registration Form -->
+            <div class="form-container">
+                <div class="container">
+                    <div class="sign_up">
+                        <div class="logo-img text-center">
+                            <img src="/../assets/Logo.svg" alt="Logo">
+                        </div>
+                        <div class="small-text text-center" style="color: beige; font-size: large;">
+                            <p>Online Project Management</p>
+                        </div>
+                        <div class="container formSignup">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">Update</h5>
+                                            <form [formGroup]="userForm">
+                                                
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+                                                    <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].touched || userForm.controls['email'].dirty || isFormSubmitted)">
+                                                        <span class="text-danger vMsg" *ngIf="userForm.controls['email'].errors?.['required']">This is Required</span>
+                                                        <span class="text-danger vMsg" *ngIf="userForm.controls['email'].errors?.['email']">Email is not proper</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password">New Password</label>
+                                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" formControlName="password">
+                                                    <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || userForm.controls['password'].dirty || isFormSubmitted)">
+                                                        <span class="text-danger vMsg" *ngIf="userForm.controls['password'].errors?.['required']">This is Required</span>
+                                                        <span class="text-danger vMsg" *ngIf="userForm.controls['password'].errors?.['minlength']">Min 6 characters required</span>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center mt-2">
+                                                    <button type="button" class="btn btn-success" style="background-color:#035FB2; color: white;" *ngIf="!isFormSubmitted" (click)="updateUser()">Update</button>&nbsp;
+                                                    <button type="button" class="btn btn-primary" style="background-color: #389AF3; color: white;" [routerLink]="['/login']">Login</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 bg-color">
+            <!-- Another background color if needed -->
+        </div>
+    </div>
+</div>
